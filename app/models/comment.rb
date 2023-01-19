@@ -5,7 +5,7 @@ class Comment < ApplicationRecord
   belongs_to :post, class_name: 'Post', foreign_key: 'PostId'
 
   def update_comment_counter
-    post.increment!(:CommmentsCounter)
+    post.increment!(:CommentCounter)
   end
 
   private :update_comment_counter

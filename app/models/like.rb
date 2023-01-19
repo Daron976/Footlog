@@ -5,7 +5,7 @@ class Like < ApplicationRecord
   belongs_to :post, class_name: 'Post', foreign_key: 'PostId'
 
   def update_like_counter
-    post.increment!(:LikesCounter)
+    post.increment!(:LikeCounter)
   end
 
   private :update_like_counter
