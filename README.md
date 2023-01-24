@@ -111,7 +111,7 @@ Example command:
 
 ### Usage
 
-- Learn how to properly use OOP.
+- Show the list of posts and empower readers to interact with them by adding comments and liking posts.
 
 <!--
 Example command:
