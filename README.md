@@ -137,9 +137,9 @@ Example command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[View From MVC]**
-- [ ] **[User Interface]**
-- [ ] **[Forms ]**
+- **View From MVC**
+- **User Interface**
+- **Forms**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
