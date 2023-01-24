@@ -1,15 +1,17 @@
-<% @user.each do |user| %>
-  <%= render partial: 'shared/user_card', locals: { user: user }%>
-<% end %>
+<div class='container flex width'>
+  <% @user.each do |user| %>
+    <%= render partial: 'shared/user_card', locals: { user: user }%>
+  <% end %>
 
-<% @posts.each do |post| %>
-  <div class='post_with_comments'>
-    <%= render partial: 'shared/post_card', locals: { post: post }%>
-    <div class='recent-comment'>
-      <% @comments[@comment_index].each do |comment| %>
-        <%= render partial: 'shared/comment_card', locals: { comment: comment }%>
-        <% @comment_index = @comment_index + 1 %>
-      <% end %>
+  <% @posts.each do |post| %>
+    <div class='post_with_comments'>
+      <%= render partial: 'shared/post_card', locals: { post: post }%>
+      <div class='recent-comment'>
+        <% @comments[@comment_index].each do |comment| %>
+          <%= render partial: 'shared/comment_card', locals: { comment: comment }%>
+          <% @comment_index = @comment_index + 1 %>
+        <% end %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
