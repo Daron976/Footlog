@@ -1,13 +1,30 @@
 <div class='container flex width'>
   <% @user.each do |user| %>
     <%= render partial: 'shared/user_card', locals: { user: user }%>
-    <p class='user-bio border flex width'>
-      <%= user.Bio %>
-    </p>
+    <div class='user-bio border flex width'>
+      <h2>Bio</h2>
+      <p>
+        <%= user.Bio %>
+      </p>
+    </div>
+    <div class='btn-anchor flex'>
+      <%= link_to '/users/new_post' do %>
+        <button type='button' name='create_post' class'button'>
+          Create post
+        </button>
+      <% end %>
+    </div>
   <% end %>
-  <div class='recent-posts'>
+  <div class='recent-posts flex'>
     <% @posts.each do |post| %>
       <%= render partial: 'shared/post_card', locals: { post: post }%>
+    <% end %>
+  </div>
+  <div class='btn-anchor flex'>
+    <%= link_to "/users/#{@user[0].id}/posts" do %>
+      <button type='button' name='create_post' class'button'>
+        See all posts
+      </button>
     <% end %>
   </div>
 </div>

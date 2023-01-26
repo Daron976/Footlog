@@ -1,0 +1,11 @@
+<div class='form-container flex width comments'>
+  <h1 class='comment-form-header'>Comment</h1>
+
+  <%= form_with model: @comments, url: "/users/#{@post_id}/new_comment" do |f| %>
+    <%= f.text_area :Text %>
+    <div class='submission-container flex'>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
+

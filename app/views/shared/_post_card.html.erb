@@ -1,6 +1,8 @@
 <div class='post-card border flex width'>
   <h3 class='post-header'>
-    <%= post.Title %>
+    <%= link_to "/users/#{post.AuthorId}/posts/#{post.id}" do %>
+      <%= post.Title %>
+    <% end %>
   </h3>
   <p class='post-desc'>
     <%= post.Text[0..250] %>
@@ -8,4 +10,11 @@
   <p class='post-counter-data'>
     Comments: <%= post.CommentCounter %>, Likes: <%= post.LikeCounter %>
   </p>
+  <div class='btn-anchor flex'>
+    <%= link_to "/users/#{post.id}/new_comment" do %>
+      <button type='button' name='create_comment' class'button'>
+        comment
+      </button>
+    <% end %>
+  </div>
 </div>
