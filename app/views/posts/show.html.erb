@@ -11,9 +11,9 @@
     <p class='post-desc'>
       <%= @post.Text %>
     </p>
-    <div class='btn-anchor flex'>
+    <div class='btn-wrapper flex width'>
       <%= link_to "/users/#{@post.AuthorId}/posts/#{@post.id}/liked_post" do %>
-        <button type='button' name='create_like' class'button'>
+        <button type='button' name='create_like' class='btn end'>
           like post
         </button>
       <% end %>

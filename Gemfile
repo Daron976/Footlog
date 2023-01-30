@@ -78,3 +78,5 @@ group :development, :test do
 end
 
 gem 'rails-controller-testing'
+
+gem 'bullet', '~> 7.0', '>= 7.0.7'

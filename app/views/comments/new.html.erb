@@ -2,8 +2,8 @@
   <h1 class='comment-form-header'>Comment</h1>
 
   <%= form_with model: @comments, url: "/users/#{@post_id}/new_comment" do |f| %>
-    <%= f.text_area :Text %>
-    <div class='submission-container flex'>
+    <%= f.text_area :Text, placeholder: 'Comment' %>
+    <div class='submission-container flex end'>
       <%= f.submit %>
     </div>
   <% end %>

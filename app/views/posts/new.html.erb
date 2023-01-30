@@ -2,15 +2,9 @@
   <h1 class='post-form-header'>Create a new post</h1>
 
   <%= form_with model: @post, url: '/users/new_post' do |f| %>
-    <div class='form-set flex'>
-      <%= f.label :Title %>
-      <%= f.text_field :Title %>
-    </div>
-    <div class='form-set flex'>
-      <%= f.label :Text %>
-      <%= f.text_area :Text %>
-    </div>
-    <div class='submission-container flex'>
+      <%= f.text_field :Title, placeholder: 'Title' %>
+      <%= f.text_area :Text, placeholder: 'Text' %>
+    <div class='submission-container flex end'>
       <%= f.submit %>
     </div>
   <% end %>
