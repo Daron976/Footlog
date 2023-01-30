@@ -13,3 +13,82 @@
  *= require_tree .
  *= require_self
  */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0 15rem;
+  height: 100vh;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.width {
+  width: 100%;
+}
+
+.container {
+  margin-top: 3rem;
+  height: 100%;
+  gap: 3rem;
+}
+
+.user-card {
+  flex-direction: row;
+  margin-top: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.user-content {
+  justify-content: space-between;
+  width: 80%;
+}
+
+h3,
+h2,
+p,
+.post-counter-data {
+  margin: 0;
+}
+
+.user-content p {
+  align-self: flex-end;
+}
+
+.post-card,
+.comment-card,
+.post-details-container {
+  gap: 1rem;
+}
+
+.comment-card,
+.post-details-container {
+  margin-top: 3rem;
+}
+
+.post-counter-data {
+  align-self: flex-end;
+}
+
+.border {
+  min-height: 4rem;
+  padding: 1rem;
+  border: 1px solid black;
+}
+
+.post-details-container {
+  padding: 1rem;
+}
+
+img {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 5px;
+}

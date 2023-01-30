@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    puts 'testing'
+    id = params[:author_id].to_i
+    @user = [User.find(id)]
+    @posts = @user[0].latest_posts
   end
 end

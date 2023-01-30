@@ -1,1 +1,13 @@
-<h1>This is the details of this users</h1>
+<div class='container flex width'>
+  <% @user.each do |user| %>
+    <%= render partial: 'shared/user_card', locals: { user: user }%>
+    <p class='user-bio border flex width'>
+      <%= user.Bio %>
+    </p>
+  <% end %>
+  <div class='recent-posts'>
+    <% @posts.each do |post| %>
+      <%= render partial: 'shared/post_card', locals: { post: post }%>
+    <% end %>
+  </div>
+</div>

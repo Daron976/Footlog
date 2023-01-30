@@ -1,0 +1,11 @@
+<div class='post-card border flex width'>
+  <h3 class='post-header'>
+    <%= post.Title %>
+  </h3>
+  <p class='post-desc'>
+    <%= post.Text[0..250] %>
+  </p>
+  <p class='post-counter-data'>
+    Comments: <%= post.CommentCounter %>, Likes: <%= post.LikeCounter %>
+  </p>
+</div>
