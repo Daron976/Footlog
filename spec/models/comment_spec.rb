@@ -7,13 +7,12 @@ RSpec.describe Comment, type: :model do
 
   before(:each) do
     @post = Post.create(AuthorId: subject.id, Title: 'dummy post', Text: 'This is a test for the latest_posts method')
-    @comment = Comment.create(AuthorId: subject.id, PostId: @post.id,
-                              Text: 'This is a test for the most_recent_comments method')
+    @comment = Comment.create(AuthorId: subject.id, PostId: @post.id, Text: 'This is a test for the comments')
   end
 
   it 'Text should be equal to input text' do
     text = @comment.Text
 
-    expect(text).to eq('This is a test for the most_recent_comments method')
+    expect(text).to eq('This is a test for the comments')
   end
 end

@@ -1,18 +1,36 @@
 <div class='post-details'>
   <div class='post-details-container flex width border'>
-    <h3 class='post-header'>
-      <%= @post.Title %> by <%= @user.Name%>
-    </h3>
-    <p class='post-counter-data'>
-      Comments: <%= @post.CommentCounter %>, Likes: <%= @post.LikeCounter %>
-    </p>
+    <div class='post-header-with-counter flex width'>
+      <h3 class='post-header'>
+        <%= @post.Title %> by <%= @user.Name%>
+      </h3>
+      <p class='post-counter-data'>
+        Comments: <%= @post.CommentCounter %>, Likes: <%= @post.LikeCounter %>
+      </p>
+    </div>
     <p class='post-desc'>
       <%= @post.Text %>
     </p>
+    <div class='btn-anchor flex'>
+      <%= link_to "/users/#{@post.AuthorId}/posts/#{@post.id}/liked_post" do %>
+        <button type='button' name='create_like' class'button'>
+          like post
+        </button>
+      <% end %>
+    </div>
   </div>
-  <div class='comment-container'>
+
+  <div class='comment-container comment-card border flex width'>
+    <h3>Comments</h3>
     <% @post_comments.each do |comment| %>
-      <%= render partial: 'shared/comment_card', locals: { comment: comment }%>
+      <% if @post.id == comment.PostId %>
+        <%= render partial: 'shared/comment_card', locals: { comment: comment }%>
+      <% else %>
+        <p>
+          There are no comments
+        </p>
+        <% break %>
+      <% end %>
     <% end %>
   </div>
 </div>

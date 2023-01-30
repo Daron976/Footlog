@@ -1,15 +1,9 @@
 class PostsController < ApplicationController
   def index
-    @comment_index = 0
     @author_id = params[:author_id].to_i
     @user = [User.find(@author_id)]
-    id_array = []
-    @comments = []
     @posts = Post.where(@author_id == :AuthorId)
-    @posts.each { |post| id_array.push(post.id) }
-    id_array.each do |el|
-      @comments.push(Comment.where(el == :PostId))
-    end
+    @comments = Comment.all
   end
 
   def show
@@ -18,5 +12,35 @@ class PostsController < ApplicationController
     @user = User.find(@author_id)
     @post = Post.find(@post_id)
     @post_comments = Comment.where(@post_id == :PostId)
+  end
+
+  def new
+    @post = Post.new
+  end
+
+  def create
+    user = current_user
+    @data = params[:post]
+    new_post = Post.new(AuthorId: user.id, Title: @data[:Title], Text: @data[:Text])
+    if new_post.save
+      flash[:success] = 'Post has been created'
+      redirect_to "/users/#{user.id}/posts"
+    else
+      flash.now[:error] = 'Incorrect data'
+      render new
+    end
+  end
+
+  def like
+    author_id = params[:author_id].to_i
+    post_id = params[:post_id].to_i
+    new_like = Like.new(AuthorId: author_id, PostId: post_id)
+    if new_like.save
+      flash[:success] = 'Liked'
+      redirect_to "/users/#{author_id}/posts"
+    else
+      flash.now[:error] = 'Post could not be liked'
+      redirect_to "/users/#{author_id}/posts/#{post_id}"
+    end
   end
 end

@@ -6,7 +6,9 @@
   </img>
   <div class='user-content border flex'>
     <h2 class='decription'>
-      <%= user.Name %>
+      <%= link_to "/users/#{user.id}" do %>
+        <%= user.Name %>
+      <% end %>
     </h2>
     <p class='post-counter'>
       Number of posts: <%= user.PostCounter %>

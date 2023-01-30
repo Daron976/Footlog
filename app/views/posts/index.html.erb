@@ -3,13 +3,20 @@
     <%= render partial: 'shared/user_card', locals: { user: user }%>
   <% end %>
 
-  <% @posts.each do |post| %>
+  <% @posts.each_with_index do |post, idx| %>
     <div class='post_with_comments'>
       <%= render partial: 'shared/post_card', locals: { post: post }%>
-      <div class='recent-comment'>
-        <% @comments[@comment_index].each do |comment| %>
-          <%= render partial: 'shared/comment_card', locals: { comment: comment }%>
-          <% @comment_index = @comment_index + 1 %>
+      <div class='comment-card border flex width'>
+        <h3>Comments</h3>
+        <% @comments.each_with_index do |comment, index| %>
+          <% if post.id == comment.PostId%>
+            <%= render partial: 'shared/comment_card', locals: { comment: comment }%>
+          <% else %>
+            <p>
+              There are no comments
+            </p>
+            <% break %>
+          <% end %>
         <% end %>
       </div>
     </div>
