@@ -1,12 +1,12 @@
 class Post < ApplicationRecord
   after_save :update_post_counter
 
-  belongs_to :user, class_name: 'User', foreign_key: 'AuthorId'
-  has_many :likes
-  has_many :comments
+  belongs_to :user, class_name: 'User', foreign_key: 'author_id'
+  has_many :likes, foreign_key: 'post_id'
+  has_many :comments, foreign_key: 'post_id'
 
   def most_recent_comments
-    Comment.where(PostId: id).last(5)
+    Comment.where(post_id: id).last(5)
   end
 
   def update_post_counter

@@ -1,17 +1,16 @@
 class PostsController < ApplicationController
   def index
     @author_id = params[:author_id].to_i
-    @user = [User.find(@author_id)]
-    @posts = Post.where(@author_id == :AuthorId)
-    @comments = Comment.all
+    @user = User.find(@author_id)
+    @posts = @user.posts.includes(:comments)
   end
 
   def show
     @author_id = params[:author_id].to_i
     @post_id = params[:post_id].to_i
     @user = User.find(@author_id)
-    @post = Post.find(@post_id)
-    @post_comments = Comment.where(@post_id == :PostId)
+    @post = Post.includes(:comments).find(@post_id)
+    @post_comments = @post.comments
   end
 
   def new
@@ -21,7 +20,7 @@ class PostsController < ApplicationController
   def create
     user = current_user
     @data = params[:post]
-    new_post = Post.new(AuthorId: user.id, Title: @data[:Title], Text: @data[:Text])
+    new_post = Post.new(author_id: user.id, Title: @data[:Title], Text: @data[:Text])
     if new_post.save
       flash[:success] = 'Post has been created'
       redirect_to "/users/#{user.id}/posts"
@@ -34,7 +33,7 @@ class PostsController < ApplicationController
   def like
     author_id = params[:author_id].to_i
     post_id = params[:post_id].to_i
-    new_like = Like.new(AuthorId: author_id, PostId: post_id)
+    new_like = Like.new(author_id:, post_id:)
     if new_like.save
       flash[:success] = 'Liked'
       redirect_to "/users/#{author_id}/posts"

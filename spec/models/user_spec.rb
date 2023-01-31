@@ -36,7 +36,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'latest_posts should return 3 of the most recent post' do
-    post = Post.create(AuthorId: subject.id, Title: 'dummy post', Text: 'This is a test for the latest_posts method')
+    post = Post.create(author_id: subject.id, Title: 'dummy post', Text: 'This is a test for the latest_posts method')
 
     latest = subject.latest_posts
 

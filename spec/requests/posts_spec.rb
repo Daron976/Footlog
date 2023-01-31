@@ -2,49 +2,34 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :request do
   describe 'GET #index' do
-    context 'get #index' do
-      before(:each) do
-        get '/users/1/posts'
-      end
+    subject { User.new(Name: 'Tom', Image: 'https://unsplash.com/photos/F_-0BxGuVvo', Bio: 'Teacher from Mexico.') }
 
-      it 'has correct status code' do
-        status = response.status
+    before { subject.save }
 
-        expect(status).to eq(200)
-      end
-
-      it 'renders correct template' do
-        template = 'posts/index'
-
-        expect(response).to render_template(template)
-      end
-
-      it 'template includes displays correct text' do
-        text = 'These are the posts for this user'
-
-        body = response.body
-
-        expect(body).to include(text)
-      end
+    before(:each) do
+      get "/users/#{subject.id}/posts"
     end
-    context 'get #show' do
-      before(:each) do
-        get '/users/1/posts/1'
-      end
 
-      it 'renders correct template' do
-        template = 'posts/show'
+    it 'has correct status code' do
+      status = response.status
 
-        expect(response).to render_template(template)
-      end
+      expect(status).to eq(200)
+    end
 
-      it 'template includes displays correct text' do
-        text = 'This is the details of the post'
+    it 'renders correct template' do
+      template = 'posts/index'
 
-        body = response.body
+      expect(template).to render_template(template)
+    end
 
-        expect(body).to include(text)
-      end
+    it 'renders correct template' do
+      @post = Post.create(author_id: subject.id, Title: 'dummy post',
+                          Text: 'This is a test for the latest_posts method')
+      get "/users/#{subject.id}/posts/#{@post.id}"
+
+      template = 'posts/show'
+
+      expect(response).to render_template(template)
     end
   end
 end

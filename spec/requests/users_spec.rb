@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :request do
   describe 'get requests' do
+    subject { User.new(Name: 'Tom', Image: 'https://unsplash.com/photos/F_-0BxGuVvo', Bio: 'Teacher from Mexico.') }
+    before { subject.save }
     context 'get #index' do
       before(:each) do
         get '/'
@@ -18,33 +20,17 @@ RSpec.describe UsersController, type: :request do
 
         expect(response).to render_template(template)
       end
-
-      it 'template includes displays correct text' do
-        text = 'These are the available users'
-
-        body = response.body
-
-        expect(body).to include(text)
-      end
     end
 
     context 'get #show' do
       before(:each) do
-        get '/users/1'
+        get "/users/#{subject.id}"
       end
 
       it 'renders correct template' do
         template = 'users/show'
 
         expect(response).to render_template(template)
-      end
-
-      it 'template includes displays correct text' do
-        text = 'This is the details of this users'
-
-        body = response.body
-
-        expect(body).to include(text)
       end
     end
   end

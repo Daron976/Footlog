@@ -6,15 +6,15 @@ RSpec.describe Comment, type: :model do
   before { subject.save }
 
   before(:each) do
-    @post = Post.create(AuthorId: subject.id, Title: 'dummy post', Text: 'This is a test for the latest_posts method')
-    @comment = Comment.create(AuthorId: subject.id, PostId: @post.id,
+    @post = Post.create(author_id: subject.id, Title: 'dummy post', Text: 'This is a test for the latest_posts method')
+    @comment = Comment.create(author_id: subject.id, post_id: @post.id,
                               Text: 'This is a test for the most_recent_comments method')
   end
 
-  it 'AuthorId should be present and correct' do
-    like = Like.new(AuthorId: subject.id, PostId: @post.id)
+  it 'author_id should be present and correct' do
+    like = Like.new(author_id: subject.id, post_id: @post.id)
 
-    id = like.AuthorId
+    id = like.author_id
 
     expect(id).to eq(subject.id)
   end
