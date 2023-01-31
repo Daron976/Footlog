@@ -74,7 +74,7 @@ end
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 group :development, :test do
-  gem "database_cleaner"
+  gem 'database_cleaner'
   gem 'rspec-rails'
 end
 
@@ -84,4 +84,4 @@ gem 'bullet', group: 'development'
 
 gem 'xmpp4r', '~> 0.5.6'
 
-gem "uniform_notifier"
+gem 'uniform_notifier'

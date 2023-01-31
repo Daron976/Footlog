@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :request do
   describe 'get requests' do
     subject { User.new(Name: 'Tom', Image: 'https://unsplash.com/photos/F_-0BxGuVvo', Bio: 'Teacher from Mexico.') }
-    before{ subject.save}
+    before { subject.save }
     context 'get #index' do
       before(:each) do
         get '/'
