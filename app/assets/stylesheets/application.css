@@ -34,7 +34,7 @@ body {
 }
 
 .card-width {
-  width: 80%;
+  width: 100%;
 }
 
 .end {
@@ -53,13 +53,8 @@ body {
   margin-top: 0;
   align-items: center;
   justify-content: space-between;
-  width: 80%;
   gap: 5rem;
-
-  /* filter: drop-shadow(2px 4px 6px black); */
-  min-height: 4rem;
-  padding: 1rem;
-  border-radius: 5px;
+  box-shadow: 0 0 19px -3px rgb(0 0 0 / 36%);
   color: #0f0e17;
 }
 
@@ -108,9 +103,8 @@ a {
 
 .post-card {
   color: #2a2a2a;
-  min-height: 4rem;
-  padding: 1rem;
   border-bottom: 3px solid black;
+  border-radius: 0%;
 }
 
 .post-card h3 {
@@ -139,9 +133,6 @@ a {
 }
 
 .border {
-  filter: drop-shadow(2px 4px 6px black);
-
-  /* box-shadow: 0 0 19px -3px rgb(0 0 0 / 36%); */
   min-height: 4rem;
   padding: 1rem;
   border-radius: 5px;
@@ -186,6 +177,8 @@ textarea {
 }
 
 .comment-card {
+  align-items: flex-start;
+  background: #fffffe;
   margin-bottom: 3rem;
   margin-top: 1rem;
 }
@@ -230,10 +223,14 @@ button,
 
 .post-details-container .btn {
   background: #0f0e17;
-  color: #0d0d0d;
+  color: #ff8e3c;
   justify-self: flex-end;
+}
 
-  /* box-shadow: 0 0 19px -3px rgb(0 0 0 / 36%); */
+button:hover,
+.submission-container input:hover,
+.post-details-container .btn:hover {
+  cursor: pointer;
 }
 
 .post-details-container .btn-wrapper {

@@ -6,8 +6,8 @@ RSpec.describe Comment, type: :model do
   before { subject.save }
 
   before(:each) do
-    @post = Post.create(AuthorId: subject.id, Title: 'dummy post', Text: 'This is a test for the latest_posts method')
-    @comment = Comment.create(AuthorId: subject.id, PostId: @post.id, Text: 'This is a test for the comments')
+    @post = Post.create(author_id: subject.id, Title: 'dummy post', Text: 'This is a test for the latest_posts method')
+    @comment = Comment.create(author_id: subject.id, post_id: @post.id, Text: 'This is a test for the comments')
   end
 
   it 'Text should be equal to input text' do

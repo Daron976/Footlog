@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     user = current_user
     @data = params[:Text]
     @post_id = params[:post_id].to_i
-    new_comment = Comment.new(AuthorId: user.id, PostId: @post_id, Text: @data)
+    new_comment = Comment.new(author_id: user.id, post_id: @post_id, Text: @data)
     if new_comment.save
       flash[:success] = 'Comment has been created'
       redirect_to "/users/#{user.id}/posts"

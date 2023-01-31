@@ -12,7 +12,7 @@
       <%= @post.Text %>
     </p>
     <div class='btn-wrapper flex width'>
-      <%= link_to "/users/#{@post.AuthorId}/posts/#{@post.id}/liked_post" do %>
+      <%= link_to "/users/#{@post.author_id}/posts/#{@post.id}/liked_post" do %>
         <button type='button' name='create_like' class='btn end'>
           like post
         </button>
@@ -20,16 +20,13 @@
     </div>
   </div>
 
-  <div class='comment-container comment-card border flex width'>
+  <div class='comment-container comment-card border flex width border'>
     <h3>Comments</h3>
     <% @post_comments.each do |comment| %>
-      <% if @post.id == comment.PostId %>
+      <% if comment %>
         <%= render partial: 'shared/comment_card', locals: { comment: comment }%>
       <% else %>
-        <p>
-          There are no comments
-        </p>
-        <% break %>
+        <p> There are no comments for this post <p>
       <% end %>
     <% end %>
   </div>

@@ -6,7 +6,7 @@ RSpec.describe Post, type: :model do
   before { subject.save }
 
   before(:each) do
-    @post = Post.create(AuthorId: subject.id, Title: 'dummy post', Text: 'This is a test for the latest_posts method')
+    @post = Post.create(author_id: subject.id, Title: 'dummy post', Text: 'This is a test for the latest_posts method')
   end
 
   it 'Title should be dummy post' do
@@ -52,7 +52,7 @@ RSpec.describe Post, type: :model do
   end
 
   it 'most_recent_comments should return 3 of the most recent post' do
-    comment = Comment.create(AuthorId: subject.id, PostId: @post.id,
+    comment = Comment.create(author_id: subject.id, post_id: @post.id,
                              Text: 'This is a test for the most_recent_comments method')
 
     latest = @post.most_recent_comments
@@ -61,7 +61,7 @@ RSpec.describe Post, type: :model do
   end
 
   # it 'PostCounter should be 1' do
-  #   Post.create(AuthorId: subject.id, Title: 'dummy post', Text: 'This is a test for the most_recent_posts method')
+  #   Post.create(author_id: subject.id, Title: 'dummy post', Text: 'This is a test for the most_recent_posts method')
 
   #   counter = subject.PostCounter
 
