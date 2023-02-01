@@ -3,10 +3,15 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0 15rem;
   background-color: #eff0f3;
+  height: 100%;
 }
 
 .flex {
@@ -136,6 +141,15 @@ img {
   align-items: center;
 }
 
+.form-wrapper {
+  background: #fffffe;
+  padding: 2rem;
+}
+
+.form-wrapper input {
+  background: #eff0f3;
+}
+
 .form-container h1 {
   color: #0d0d0d;
 }
@@ -152,6 +166,7 @@ textarea {
   width: 20rem;
   height: 2rem;
   margin-left: 5px;
+  border: none;
 }
 
 textarea {
@@ -167,11 +182,6 @@ textarea {
   background: #fffffe;
   margin-bottom: 3rem;
   margin-top: 1rem;
-}
-
-.submission-container input {
-  width: 100%;
-  align-self: flex-end;
 }
 
 .btn-wrapper {
@@ -194,8 +204,15 @@ textarea {
   flex-direction: row;
 }
 
+.actions {
+  width: 100%;
+  display: flex;
+  align-self: flex-end;
+}
+
 button,
-.submission-container input {
+.submission-container input,
+.actions input {
   min-width: 5rem;
   background: #ff8e3c;
   color: #0f0e17;
@@ -203,6 +220,12 @@ button,
   padding: 0.5rem 1rem;
   border-radius: 5px;
   box-shadow: 0 0 19px -3px rgb(0 0 0 / 36%);
+  width: auto;
+  align-self: flex-end;
+}
+
+.actions input {
+  width: 100%;
 }
 
 .post-details-container .btn {
@@ -213,7 +236,8 @@ button,
 
 button:hover,
 .submission-container input:hover,
-.post-details-container .btn:hover {
+.post-details-container .btn:hover,
+.actions input:hover {
   cursor: pointer;
 }
 
@@ -224,4 +248,35 @@ button:hover,
 .comment-container {
   align-items: flex-start;
   background: #ff8e3c;
+}
+
+.sign-up h2{
+  margin: 1rem;
+}
+
+.links-container a,
+.links-container button{
+  width: 100%;
+}
+
+.links-container {
+  gap: 1rem;
+  padding-left: 0.25rem;
+}
+
+.links-container p {
+  margin: 1rem 0;
+}
+
+input:focus {
+  outline: none;
+}
+
+.remember {
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.remember #user_remember_me {
+  width: fit-content;
 }

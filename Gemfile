@@ -85,3 +85,7 @@ gem 'bullet', group: 'development'
 gem 'xmpp4r', '~> 0.5.6'
 
 gem 'uniform_notifier'
+
+gem 'devise'
+
+gem 'letter_opener'
