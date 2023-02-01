@@ -9,15 +9,24 @@ html {
 
 body {
   margin: 0;
-  padding: 0 15rem;
   background-color: #eff0f3;
   height: 100%;
+  padding: 1rem;
 }
 
 .flex {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.nav {
+  align-items: flex-end;
+  padding: 0.25rem 1rem;
+  background: #fffffe;
+  color: #2a2a2a;
+  border-radius: 15px;
+  filter: drop-shadow(0px 1px 4px black);
 }
 
 .width {
@@ -34,8 +43,9 @@ body {
 
 .container {
   margin: 3rem 0;
-  height: 100%;
+  max-height: 100%;
   gap: 2rem;
+  padding: 0 15rem;
 }
 
 .user-card {
@@ -188,6 +198,10 @@ textarea {
   flex-direction: row;
 }
 
+.see-all-posts {
+  padding: 0 1rem;
+}
+
 .user-bio .btn-wrapper {
   margin-top: 1rem;
 }
@@ -220,7 +234,6 @@ button,
   padding: 0.5rem 1rem;
   border-radius: 5px;
   box-shadow: 0 0 19px -3px rgb(0 0 0 / 36%);
-  width: auto;
   align-self: flex-end;
 }
 
@@ -279,4 +292,23 @@ input:focus {
 
 .remember #user_remember_me {
   width: fit-content;
+}
+
+.notifications {
+  display: flex;
+  background: #2a2a2a;
+  color: #eff0f3;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  align-self: center;
+}
+
+.nav button {
+  background: none;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  min-width: fit-content;
 }

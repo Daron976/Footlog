@@ -10,10 +10,21 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <p class="notice"><%= notice if notice%></p>
-    <p class="alert"><%= alert if alert%></p>
-    <%= button_to "Sign out", destroy_user_session_path, method: :delete if user_signed_in?%>
+  <body class='flex'>
+    <% if user_signed_in? %>
+      <div class='nav flex width'>
+        <%= button_to "Logout", destroy_user_session_path, method: :delete %>
+      </div>
+    <% end %>
+    <% if (alert || notice) && user_signed_in? %>
+      <div class="notifications border flex">
+        <% if notice %>
+          <p class'notice'><%= notice%></p>
+        <% elsif alert %>
+          <p class'alert'><%= alert%></p>
+        <% end %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
