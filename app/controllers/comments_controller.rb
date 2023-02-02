@@ -25,10 +25,9 @@ class CommentsController < ApplicationController
     @comment = Comment.find(comment_id)
     if @comment.destroy[0]
       flash[:success] = 'Comment deleted'
-      redirect_to "/users/#{author_id}/posts/#{post_id}"
     else
       flash.now[:error] = 'Comment could not be deleted'
-      redirect_to "/users/#{author_id}/posts/#{post_id}"
     end
+    redirect_to "/users/#{author_id}/posts/#{post_id}"
   end
 end
