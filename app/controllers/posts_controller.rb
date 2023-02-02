@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
   # load_and_authorize_resource
   def index
+    p '+======================================'
+    puts current_user.id
+    p '+======================================'
     @author_id = params[:author_id].to_i
     @user = User.find(@author_id)
     @posts = @user.posts.includes(:comments)
@@ -55,5 +58,12 @@ class PostsController < ApplicationController
       flash.now[:error] = 'Post could not be destroyed'
       redirect_to "/users/#{author_id}/posts/#{post_id}"
     end
+  end
+
+  def data
+    author_id = params[:author_id].to_i
+    @data = Post.where(:author_id == author_id)
+
+    render json: @data
   end
 end

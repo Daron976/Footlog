@@ -19,5 +19,10 @@
         See all posts
       </button>
     <% end %>
+    <%= link_to "/users/#{@user[0].id}/posts_data" do %>
+      <button type='button' name='create_post' class ='btn'>
+        Render json
+      </button>
+    <% end %>
   </div>
 </div>

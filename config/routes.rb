@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   get '/users/:author_id/posts', to: 'posts#index', as: 'posts_index'
   get '/users/:author_id/posts/:post_id', to: 'posts#show', as: 'posts_show'
   get '/users/:author_id/posts/:post_id/liked_post', to: 'posts#like'
+  get '/users/:author_id/posts_data', to: 'posts#data'
+  get '/users/:author_id/posts/:posts_id/comments', to: 'comments#data'
+  post '/users/new_comment', to: 'comments#createjson'
 end

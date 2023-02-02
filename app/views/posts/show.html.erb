@@ -33,4 +33,10 @@
       <% end %>
     <% end %>
   </div>
+
+  <%= link_to "/users/#{@post.author_id}/posts/#{@post.id}/comments" do %>
+    <button type='button' name='create_post' class ='btn'>
+      Render json
+    </button>
+  <% end %>
 </div>

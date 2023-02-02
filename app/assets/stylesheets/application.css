@@ -198,8 +198,7 @@ textarea {
 .comment-card {
   align-items: flex-start;
   background: #fffffe;
-  margin-bottom: 3rem;
-  margin-top: 1rem;
+  margin: 1rem 0;
 }
 
 .btn-wrapper {
