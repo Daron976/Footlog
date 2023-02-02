@@ -44,7 +44,7 @@ class CommentsController < ApplicationController
 
   def data
     post_id = params[:post_id].to_i
-    @comments = Comment.where(:post_id == post_id)
+    @comments = Comment.where(post_id == :post_id)
 
     render json: @comments
   end

@@ -62,7 +62,7 @@ class PostsController < ApplicationController
 
   def data
     author_id = params[:author_id].to_i
-    @data = Post.where(:author_id == author_id)
+    @data = Post.where(author_id == :author_id)
 
     render json: @data
   end
