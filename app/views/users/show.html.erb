@@ -20,7 +20,7 @@
       <%= render partial: 'shared/post_card', locals: { post: post }%>
     <% end %>
   </div>
-  <div class='btn-wrapper flex card-width'>
+  <div class='btn-wrapper flex card-width see-all-posts'>
     <%= link_to "/users/#{@user[0].id}/posts" do %>
       <button type='button' name='create_post' class ='btn'>
         See all posts
