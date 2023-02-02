@@ -1,3 +1,8 @@
-<p class='comment-desc'>
-  <em><%= User.find(comment.author_id).Name %></em>: <%= comment.Text %>
-</p>
+<div class='comment-wrapper flex width' value="#{comment.id}">
+  <p class='comment-desc'>
+    <em><%= User.find(comment.author_id).Name %></em>: <%= comment.Text %>
+  </p>
+  <% if current_user.id == comment.author_id || (can? :destroy, comment) %>
+    <%= button_to "delete", "/users/#{comment.post_id}/delete_comment/#{comment.id}", method: :delete %>
+  <% end %>
+</div>
