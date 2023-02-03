@@ -17,4 +17,17 @@ class CommentsController < ApplicationController
       redirect_to "/users/#{@post_id}/new_comment"
     end
   end
+
+  def destroy
+    author_id = current_user.id.to_i
+    comment_id = params[:comment_id]
+    post_id = params[:post_id].to_i
+    @comment = Comment.find(comment_id)
+    if @comment.destroy[0]
+      flash[:success] = 'Comment deleted'
+    else
+      flash.now[:error] = 'Comment could not be deleted'
+    end
+    redirect_to "/users/#{author_id}/posts/#{post_id}"
+  end
 end
