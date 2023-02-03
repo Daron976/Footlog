@@ -10,7 +10,6 @@ html {
 body {
   margin: 0;
   background-color: #eff0f3;
-
   padding: 1rem;
 }
 
@@ -204,7 +203,6 @@ textarea {
   justify-content: center;
 }
 
-
 .user-bio .btn-wrapper {
   margin-top: 1rem;
 }
@@ -310,7 +308,7 @@ button:hover,
 }
 
 .nav button {
-  min-width: fit-content; 
+  min-width: fit-content; /*stylelint-disable-line*/
   background: none;
   border: none;
   padding: 0;
@@ -339,7 +337,7 @@ button:hover,
   .user-card {
     flex-direction: column;
     gap: 0.5rem;
-    height: fit-content; 
+    height: fit-content; /*stylelint-disable-line*/
   }
 
   .user {
