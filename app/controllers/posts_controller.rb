@@ -1,9 +1,6 @@
 class PostsController < ApplicationController
   # load_and_authorize_resource
   def index
-    p '+======================================'
-    puts current_user.id
-    p '+======================================'
     @author_id = params[:author_id].to_i
     @user = User.find(@author_id)
     @posts = @user.posts.includes(:comments)
