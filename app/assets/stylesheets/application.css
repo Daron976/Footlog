@@ -11,7 +11,6 @@ body {
   margin: 0;
   background-color: #eff0f3;
 
-  /* height: 100%; */
   padding: 1rem;
 }
 
@@ -73,7 +72,6 @@ body {
 }
 
 .user-bio {
-  /* padding: 1rem; */
   align-items: flex-start;
 }
 
@@ -142,7 +140,6 @@ a {
 }
 
 .border {
-  /* min-height: 4rem; */
   padding: 1rem;
   border-radius: 5px;
 }
@@ -191,10 +188,6 @@ textarea {
   height: 5rem;
 }
 
-/* .comments textarea {
-  width: 25rem;
-} */
-
 .comment-card {
   align-items: flex-start;
   background: #fffffe;
@@ -211,9 +204,6 @@ textarea {
   justify-content: center;
 }
 
-/* .see-all-posts {
-  padding: 0 1rem;
-} */
 
 .user-bio .btn-wrapper {
   margin-top: 1rem;
@@ -320,7 +310,7 @@ button:hover,
 }
 
 .nav button {
-  min-width: fit-content; /*stylelint-disable-line*/
+  min-width: fit-content; 
   background: none;
   border: none;
   padding: 0;
@@ -349,7 +339,7 @@ button:hover,
   .user-card {
     flex-direction: column;
     gap: 0.5rem;
-    height: fit-content; /*stylelint-disable-line*/
+    height: fit-content; 
   }
 
   .user {
