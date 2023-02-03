@@ -10,7 +10,8 @@ html {
 body {
   margin: 0;
   background-color: #eff0f3;
-  height: 100%;
+
+  /* height: 100%; */
   padding: 1rem;
 }
 
@@ -21,12 +22,14 @@ body {
 }
 
 .nav {
-  align-items: flex-end;
+  flex-direction: row;
+  justify-content: flex-end;
   padding: 0.25rem 1rem;
   background: #fffffe;
   color: #2a2a2a;
   border-radius: 15px;
   filter: drop-shadow(0 1px 4px black);
+  gap: 1rem;
 }
 
 .width {
@@ -70,7 +73,7 @@ body {
 }
 
 .user-bio {
-  padding: 1rem;
+  /* padding: 1rem; */
   align-items: flex-start;
 }
 
@@ -118,9 +121,14 @@ a {
   gap: 1rem;
 }
 
+.post-details {
+  padding: 0 15rem;
+}
+
 .post-details-container {
   background: #ff8e3c;
   margin-top: 3rem;
+  padding: 0 15rem;
 }
 
 .post-card h3,
@@ -134,7 +142,7 @@ a {
 }
 
 .border {
-  min-height: 4rem;
+  /* min-height: 4rem; */
   padding: 1rem;
   border-radius: 5px;
 }
@@ -183,24 +191,28 @@ textarea {
   height: 5rem;
 }
 
-.comments textarea {
+/* .comments textarea {
   width: 25rem;
-}
+} */
 
 .comment-card {
   align-items: flex-start;
   background: #fffffe;
-  margin-bottom: 3rem;
-  margin-top: 1rem;
+  margin: 1rem 0;
 }
 
 .btn-wrapper {
   flex-direction: row;
+  gap: 1rem;
 }
 
-.see-all-posts {
-  padding: 0 1rem;
+.create-post {
+  justify-content: center;
 }
+
+/* .see-all-posts {
+  padding: 0 1rem;
+} */
 
 .user-bio .btn-wrapper {
   margin-top: 1rem;
@@ -241,13 +253,14 @@ button,
   width: 100%;
 }
 
-.post-details-container .btn {
+.post-details-container button {
   background: #0f0e17;
   color: #ff8e3c;
   justify-self: flex-end;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
   outline: none;
 }
 
@@ -306,8 +319,57 @@ button:hover,
 }
 
 .nav button {
+  min-width: fit-content; /*stylelint-disable-line*/
   background: none;
   border: none;
   padding: 0;
   box-shadow: none;
+}
+
+.comment-wrapper {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow: scroll;
+  }
+
+  .form-wrapper {
+    padding: 0.75rem;
+  }
+
+  .container {
+    padding: 0;
+    margin: 1rem;
+  }
+
+  .user-card {
+    flex-direction: column;
+    gap: 0.5rem;
+    height: fit-content; /*stylelint-disable-line*/
+  }
+
+  .user {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .comment-wrapper {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .comment-wrapper form {
+    width: 100%;
+  }
+
+  .post-details {
+    padding: 0;
+  }
+
+  .comment-container {
+    background: #fffffe;
+  }
 }

@@ -2,4 +2,11 @@
   <% @users.each do |user| %>
     <%= render partial: 'shared/user_card', locals: { user: user }%>
   <% end %>
+  <div class='btn-wrapper flex width create-post'>
+    <%= link_to '/users/new_post' do %>
+      <button type='button' name='create_post' class ='btn'>
+        Create post
+      </button>
+    <% end %>
+  </div>
 </div>

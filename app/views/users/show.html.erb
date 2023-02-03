@@ -6,13 +6,6 @@
       <p>
         <%= user.Bio %>
       </p>
-      <div class='btn-wrapper flex width'>
-        <%= link_to '/users/new_post' do %>
-          <button type='button' name='create_post' class ='btn'>
-            Create post
-          </button>
-        <% end %>
-      </div>
     </div>
   <% end %>
   <div class='recent-posts flex width'>
@@ -24,6 +17,11 @@
     <%= link_to "/users/#{@user[0].id}/posts" do %>
       <button type='button' name='create_post' class ='btn'>
         See all posts
+      </button>
+    <% end %>
+    <%= link_to "/users/#{@user[0].id}/posts_data" do %>
+      <button type='button' name='create_post' class ='btn'>
+        Render json
       </button>
     <% end %>
   </div>

@@ -13,6 +13,8 @@
   <body class='flex'>
     <% if user_signed_in? %>
       <div class='nav flex width'>
+        <%= button_to "Home", user_index_path, method: :get %>
+        <p>|</p>
         <%= button_to "Logout", destroy_user_session_path, method: :delete %>
       </div>
     <% end %>

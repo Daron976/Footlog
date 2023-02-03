@@ -4,8 +4,8 @@
   <%= form_with model: @post, url: '/users/new_post' do |f| %>
       <%= f.text_field :Title, placeholder: 'Title' %>
       <%= f.text_area :Text, placeholder: 'Text' %>
-    <div class='submission-container flex end'>
-      <%= f.submit %>
-    </div>
+      <div class='submission-container flex end'>
+        <%= f.submit %>
+      </div>
   <% end %>
 </div>

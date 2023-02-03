@@ -1,4 +1,4 @@
-<div class='post-details'>
+<div class='post-details width'>
   <div class='post-details-container flex width border'>
     <div class='post-header-with-counter flex width'>
       <h3 class='post-header'>
@@ -17,6 +17,9 @@
           like post
         </button>
       <% end %>
+      <% if current_user.id == @post.author_id || (can? :destroy, @post) %>
+        <%= button_to "delete", "/users/#{@post.author_id}/posts/#{@post.id}/delete_post", method: :delete %>
+      <% end %>
     </div>
   </div>
 
@@ -30,4 +33,10 @@
       <% end %>
     <% end %>
   </div>
+
+  <%= link_to "/users/#{@post.author_id}/posts/#{@post.id}/comments" do %>
+    <button type='button' name='create_post' class ='btn'>
+      Render json
+    </button>
+  <% end %>
 </div>
